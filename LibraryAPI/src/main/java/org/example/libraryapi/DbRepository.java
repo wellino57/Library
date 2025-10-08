@@ -14,6 +14,6 @@ public class DbRepository {
     }
 
     public List<Book> getAllBooks() {
-
+        return null;
     }
 }

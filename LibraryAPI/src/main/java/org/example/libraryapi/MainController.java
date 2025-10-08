@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/library")
 public class MainController {
     DbRepository dr;
@@ -27,5 +27,6 @@ public class MainController {
     public String mainPage(Model m) {
         List<Book> books = dr.getAllBooks();
         m.addAttribute("books", books);
+        return "index";
     }
 }
