@@ -23,7 +23,7 @@ public class MainController {
         return "test succesful";
     }
 
-    @GetMapping("/main")
+    @GetMapping("/home")
     public String mainPage(Model m) {
         List<Book> books = dr.getAllBooks();
         m.addAttribute("books", books);

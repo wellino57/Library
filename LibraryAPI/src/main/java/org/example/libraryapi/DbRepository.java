@@ -1,5 +1,6 @@
 package org.example.libraryapi;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,9 @@ public class DbRepository {
     }
 
     public List<Book> getAllBooks() {
-        return null;
+        return jt.query(
+                "SELECT book.id, title, author.name AS author, dateOfRelease, stock, description FROM book JOIN author ON book.authorId = author.id",
+                BeanPropertyRowMapper.newInstance(Book.class)
+        );
     }
 }

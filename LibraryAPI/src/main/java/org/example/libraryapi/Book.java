@@ -5,9 +5,11 @@ import java.sql.Date;
 public class Book {
     int id;
     String title;
-    int authorId;
+    String author;
     Date dateOfRelease;
     int stock;
+
+    String description;
 
     public int getId() {
         return id;
@@ -25,12 +27,12 @@ public class Book {
         this.title = title;
     }
 
-    public int getAuthorId() {
-        return authorId;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Date getDateOfRelease() {
@@ -49,11 +51,21 @@ public class Book {
         this.stock = stock;
     }
 
-    public Book(int id, String title, int authorID, Date dateOfRelease, int stock) {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Book() {}
+    public Book(int id, String title, String author, Date dateOfRelease, int stock, String description) {
         this.id = id;
         this.title = title;
-        this.authorId = authorID;
+        this.author = author;
         this.dateOfRelease = dateOfRelease;
         this.stock = stock;
+        this.description = description;
     }
 }
