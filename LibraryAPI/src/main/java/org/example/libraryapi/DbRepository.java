@@ -16,7 +16,7 @@ public class DbRepository {
 
     public List<Book> getAllBooks() {
         return jt.query(
-                "SELECT book.id, title, author.name AS author, dateOfRelease, stock, description FROM book JOIN author ON book.authorId = author.id",
+                "SELECT book.id, title, author.name AS author, dateOfRelease, stock, description FROM book JOIN author ON book.authorId = author.id ORDER BY book.id",
                 BeanPropertyRowMapper.newInstance(Book.class)
         );
     }

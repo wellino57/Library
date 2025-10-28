@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <style>
+      td {
+        overflow: hidden;
+      }
+      tr:hover{
+        background-color: blue;
+        color: white;
+      }
+    </style>
+</head>
+<body>
+    <table>
+      <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Release date</td>
+        <td>Stock</td>
+        <td>Description</td>
+      </tr>
+      <tr th:each="book: ${books}" onclick="openEditPage()">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.dateOfRelease}"></td>
+        <td th:text="${book.stock}"></td>
+        <td th:text="${book.description}"></td>
+      </tr>
+    </table>
+</body>
+</html>

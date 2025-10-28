@@ -24,9 +24,16 @@ public class MainController {
     }
 
     @GetMapping("/home")
-    public String mainPage(Model m) {
+    public String homePage(Model m) {
         List<Book> books = dr.getAllBooks();
         m.addAttribute("books", books);
         return "index";
+    }
+
+    @GetMapping("/adminPanel")
+    public String adminPanel(Model m) {
+        List<Book> books = dr.getAllBooks();
+        m.addAttribute("books", books);
+        return "admin_panel";
     }
 }
