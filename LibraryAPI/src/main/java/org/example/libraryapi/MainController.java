@@ -2,10 +2,7 @@ package org.example.libraryapi;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +32,14 @@ public class MainController {
         List<Book> books = dr.getAllBooks();
         m.addAttribute("books", books);
         return "admin_panel";
+    }
+
+    @GetMapping("/adminEditPage/{id}")
+    public String adminEditPage(@PathVariable int id, Model m) {
+        Book book = dr.getBookById(id);
+        List<Author> authors = dr.getAllAuthors();
+        m.addAttribute("book", book);
+        m.addAttribute("authors", authors);
+        return "admin_edit_page";
     }
 }

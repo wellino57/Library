@@ -20,4 +20,16 @@ public class DbRepository {
                 BeanPropertyRowMapper.newInstance(Book.class)
         );
     }
+
+    public List<Author> getAllAuthors() {
+        return jt.query(
+                "SELECT id, name, surname FROM author",
+                BeanPropertyRowMapper.newInstance(Author.class)
+        );
+    }
+
+    public Book getBookById(int id) {
+        return jt.queryForObject("SELECT book.id, title, author.name AS author, dateOfRelease, stock, description FROM book JOIN author ON book.authorId = author.id WHERE book.id = "+id,
+                BeanPropertyRowMapper.newInstance(Book.class));
+    }
 }
